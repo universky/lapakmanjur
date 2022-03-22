@@ -1,33 +1,37 @@
 /*----------------------------------------
     register Page
 ------------------------------------------*/
-.register-bg
-{
-    background-image: url('../../images/gallery/flat-bg.jpg');
+.register-bg {
+    background-image: url("../../images/gallery/flat-bg.jpg");
+    /* background: rgb(255, 0, 0);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 255, 255, 1) 100%,
+        rgba(255, 255, 255, 1) 100%
+    ); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#register-page
-{
+#register-page {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display:         flex;
+    display: flex;
 
     height: 100vh;
 
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
 }
 
-#register-page .card-panel.border-radius-6.register-card
-{
+#register-page .card-panel.border-radius-6.register-card {
     margin-left: 0 !important;
 }

@@ -30,12 +30,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/data-tables/css/select.dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/data-tables.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/data-tables.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/page-users.css') }}">
+
+    <!-- Search -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/page-search.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/advance-ui-media.css') }}">
     <!-- END: Page Level CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom/custom.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/form-select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2-materialize.css') }}" type="text/css">
+
+
     <!-- END: Custom CSS-->
+    @yield('head')
 </head>
 <!-- END: Head-->
 
@@ -99,6 +111,24 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{ asset('assets/js/scripts/data-tables.js') }}"></script>
     <!-- END PAGE LEVEL JS-->
+
+    <!-- Modal -->
+    <script src="{{ asset('assets/js/scripts/advance-ui-modals.js') }}"></script>
+
+    <!-- User -->
+    <script src="{{ asset('assets/js/scripts/page-users.js') }}"></script>
+
+    <script src="{{ asset('assets/js/scripts/advance-ui-media.js') }}"></script>
+
+    <!-- Search -->
+    <script src="{{ asset('assets/js/search.js') }}"></script>
+
+    <script src="{{ asset('assets/js/scripts/form-select2.js') }}"></script>
+    <script src="{{ asset('assets/vendors/select2/select2.full.min.js') }}"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@2"></script>
     @yield('pagescript')
 </body>
 

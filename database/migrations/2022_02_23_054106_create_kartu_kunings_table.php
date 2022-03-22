@@ -18,15 +18,10 @@ class CreateKartuKuningsTable extends Migration
             $table->integer('user_id');
             $table->string('nik');
             $table->string('no_pencari_kerja');
-            $table->date('tgl_lahir');
-            $table->string('jenis_kelamin');
-            $table->string('status');
-            $table->string('agama');
-            $table->string('provinsi');
-            $table->string('kota');
-            $table->string('kode_pos');
-            $table->string('alamat');
             $table->date('masa_berlaku');
+            $table->date('date');
+            $table->string('status');
+            $table->string('alasan');
             $table->timestamps();
         });
     }

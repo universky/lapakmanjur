@@ -1,0 +1,151 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Lpk;
+use App\Models\Training;
+use Exception;
+use Illuminate\Http\Request;
+
+class LPKController extends Controller
+{
+    public function index()
+    {
+        $lpks = Lpk::all();
+
+        return view('lpk.admin.index', [
+            'lpks' => $lpks
+        ]);
+    }
+
+    public function daftar()
+    {
+
+        return view('lpk.daftar');
+    }
+
+    public function halaman_cetak(Request $request)
+    {
+        $no_max_lpk = Lpk::max('id');
+        $no_registrasi = "LP" . date("dmY") . sprintf("%07d", $no_max_lpk + 1);
+
+        $lpk = new Lpk();
+        $lpk->no_registrasi = $no_registrasi;
+        $lpk->nama_lpk = $request->nama_lpk;
+        $lpk->phone = $request->phone;
+        $lpk->email = $request->email;
+        $lpk->alamat = $request->alamat;
+        $lpk->date = date('Y-m-d');
+        $lpk->status = "Pending";
+        $lpk->created_at = $request->created_at;
+        $lpk->updated_at = $request->updated_at;
+
+        $lpk->save();
+
+        $lpks = Lpk::find($lpk->id);
+        $url = "/lpk/daftar/cetak_pendaftaran/" . $lpk->id;
+
+        return view('lpk.halaman_cetak', [
+            'lpks' => $lpks,
+            'url' => $url
+        ]);
+    }
+
+    public function cetak_pendaftaran($id)
+    {
+        $lpks = Lpk::find($id);
+        $no_registrasi = $lpks['no_registrasi'];
+
+        // return $pelatihans;
+
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8', 'format' =>
+            [150, 101],
+            'margin_right' => '5',
+            'margin_left' => '5',
+            'margin_bottom' => '10',
+            'margin_top' => '6',
+        ]);
+        $data = view('lpk.cetak', [
+            'lpks' => $lpks,
+        ]);
+
+        $mpdf->WriteHTML($data);
+        $file_name = 'Bukti Registrasi Pelatihan - No. ' . $no_registrasi . '.pdf';
+        try {
+            $mpdf->Output($file_name, 'I');
+            return redirect('home');
+            exit();
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Internal error',
+                'code' => 500,
+                'error' => true,
+                'errors' => $e,
+            ], 500);
+        }
+    }
+
+    public function detail($id)
+    {
+        $lpk = Lpk::find($id);
+        $trainings = Training::where('lpk_id', $id)->get();
+
+        // return $tranings;
+
+        return view('lpk.admin.detail', [
+            'lpk' => $lpk,
+            'trainings' => $trainings
+        ]);
+    }
+
+    public function approval(Request $request, $id)
+    {
+        $lpk = Lpk::find($id);
+
+        $lpk->status = "Approved";
+        $lpk->alasan = $request->alasan;
+
+        try {
+            $lpk->save();
+            return response()->json([
+                'message' => 'LPK berhasil Disetujui',
+                'code' => 200,
+                'error' => false,
+                'data' => $lpk,
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Internal error',
+                'code' => 500,
+                'error' => true,
+                'errors' => $e,
+            ], 500);
+        }
+    }
+
+    public function reject(Request $request, $id)
+    {
+        $lpk = Lpk::find($id);
+
+        $lpk->status = "Rejected";
+        $lpk->alasan = $request->alasan;
+
+        try {
+            $lpk->save();
+            return response()->json([
+                'message' => 'LPK berhasil ditolak',
+                'code' => 200,
+                'error' => false,
+                'data' => $lpk,
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Internal error',
+                'code' => 500,
+                'error' => true,
+                'errors' => $e,
+            ], 500);
+        }
+    }
+}

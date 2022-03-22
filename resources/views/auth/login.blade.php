@@ -35,12 +35,17 @@
                     <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">
                         <form class="form-horizontal auth-form" action="{{ route('authenticate') }}" method="post">
                             @csrf
+
                             @if(session('errors'))
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div class="card-alert card red">
+                                <div class="card-content white-text">
+                                    <p>DANGER : The daily report has failed</p>
+                                </div>
                                 Something it's wrong:
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
+
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -48,28 +53,46 @@
                                 </ul>
                             </div>
                             @endif
+
                             @if (Session::has('success'))
-                            <div class="alert alert-success">
-                                {{ Session::get('success') }}
+                            <div class="card-alert card green">
+                                <div class="card-content white-text">
+                                    <p> {{ Session::get('success') }}</p>
+                                </div>
+                                <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             </div>
                             @endif
+
                             @if (Session::has('error'))
-                            <div class="alert alert-danger">
-                                {{ Session::get('error') }}
+                            <div class="card-alert card red">
+                                <div class="card-content white-text">
+                                    <p> {{ Session::get('error') }}</p>
+                                </div>
+                                <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             </div>
                             @endif
+
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col s10">
                                     <h5 class="ml-4">Sign in</h5>
+                                </div>
+                                <div class="input-field col s2">
+                                    <a href="/homepage">
+                                        <h5 class="ml-12" style="text-align: right;"><i class="material-icons">home</i></h5>
+                                    </a>
                                 </div>
                             </div>
                             <div class="row margin">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">person_outline</i>
-                                    <input type="text" class="form-control @error('username') is invalid @enderror" name="username" id="username" placeholder="Enter username" autofocus required>
-                                    <label for="username" class="center-align">username</label>
+                                    <i class="material-icons prefix pt-2">chrome_reader_mode</i>
+                                    <input type="text" class="form-control @error('nik') is invalid @enderror" name="nik" id="nik" placeholder="NIK harus 16 angka" onkeypress="return /[00000-99999]/i.test(event.key)" maxlength="16" autofocus required>
+                                    <label for="nik" class="center-align">NIK</label>
                                 </div>
-                                @error('username')
+                                @error('nik')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -82,7 +105,7 @@
                                     <label for="password">Password</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col s12 m12 l12 ml-2 mt-1">
                                     <p>
                                         <label>
@@ -91,11 +114,21 @@
                                         </label>
                                     </p>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12" type="submit">Log In <i class="fas fa-sign-in-alt ms-1"></i></button>
+                                    <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12" type="submit">Masuk <i class="fas fa-sign-in-alt ms-1"></i></button>
+                                    <!-- <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12" type="submit">Sign Up <i class="fas fa-sign-in-alt ms-1"></i></button> -->
                                     <!-- <a href="index.html" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Login</a> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <b>
+                                        <p class="margin medium-small"><a style="color:blue" href="/register">Anda belum memiliki akun? Daftar disini.</a></p>
+                                        <p class="margin medium-small"><a style="color:blue" href="/login_admin">Masuk sebagai Admin.</a></p>
+                                        <p class="margin medium-small"><a style="color:blue" href="/reset_password">Lupa password?</a></p>
+                                    </b>
                                 </div>
                             </div>
                         </form>
@@ -118,6 +151,7 @@
     <!-- END THEME  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
+
 </body>
 
 </html>

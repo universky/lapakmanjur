@@ -1,97 +1,116 @@
- <!-- BEGIN: Header-->
- <header class="page-topbar" id="header">
-     <div class="navbar navbar-fixed">
-         <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-light-blue-cyan">
-             <div class="nav-wrapper">
-                 <ul class="left">
-                     <li>
-                         <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="/home"><img src="{{ asset('assets/images/logo/materialize-logo.png') }}" alt="materialize logo"><span class="logo-text hide-on-med-and-down">LapakManjur</span></a></h1>
-                     </li>
-                 </ul>
-                 <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-                     <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Search" data-search="template-list">
-                     <ul class="search-list collection display-none"></ul>
-                 </div>
-                 <ul class="navbar-list right">
-                     <li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="javascript:void(0);" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li>
-                     <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
-                     <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search </i></a></li>
-                     <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge orange accent-3">5</small></i></a></li>
-                     <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('assets/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
-                     <li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
-                 </ul>
-                 <!-- translation-button-->
-                 <ul class="dropdown-content" id="translation-dropdown">
-                     <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="en"><i class="flag-icon flag-icon-gb"></i> English</a></li>
-                     <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a></li>
-                     <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></li>
-                     <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a></li>
-                 </ul>
-                 <!-- notifications-dropdown-->
-                 <ul class="dropdown-content" id="notifications-dropdown">
-                     <li>
-                         <h6>NOTIFICATIONS<span class="new badge">5</span></h6>
-                     </li>
-                     <li class="divider"></li>
-                     <li><a class="black-text" href="#!"><span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> A new order has been placed!</a>
-                         <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
-                     </li>
-                     <li><a class="black-text" href="#!"><span class="material-icons icon-bg-circle red small">stars</span> Completed the task</a>
-                         <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
-                     </li>
-                     <li><a class="black-text" href="#!"><span class="material-icons icon-bg-circle teal small">settings</span> Settings updated</a>
-                         <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
-                     </li>
-                     <li><a class="black-text" href="#!"><span class="material-icons icon-bg-circle deep-orange small">today</span> Director meeting started</a>
-                         <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
-                     </li>
-                     <li><a class="black-text" href="#!"><span class="material-icons icon-bg-circle amber small">trending_up</span> Generate monthly report</a>
-                         <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
-                     </li>
-                 </ul>
-                 <!-- profile-dropdown-->
-                 <ul class="dropdown-content" id="profile-dropdown">
-                     <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
-                     <li><a class="grey-text text-darken-1" href="app-chat.html"><i class="material-icons">chat_bubble_outline</i> Chat</a></li>
-                     <li><a class="grey-text text-darken-1" href="page-faq.html"><i class="material-icons">help_outline</i> Help</a></li>
-                     <li class="divider"></li>
-                     <li><a class="grey-text text-darken-1" href="user-lock-screen.html"><i class="material-icons">lock_outline</i> Lock</a></li>
-                     <li><a class="grey-text text-darken-1" href="/logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
-                 </ul>
-             </div>
-             <nav class="display-none search-sm">
-                 <div class="nav-wrapper">
-                     <form id="navbarForm">
-                         <div class="input-field search-input-sm">
-                             <input class="search-box-sm" type="search" required="" id="search" placeholder="Search" data-search="template-list">
-                             <label class="label-icon" for="search"><i class="material-icons search-sm-icon">search</i></label><i class="material-icons search-sm-close">close</i>
-                             <ul class="search-list collection search-list-sm display-none"></ul>
-                         </div>
-                     </form>
-                 </div>
-             </nav>
-         </nav>
-         <!-- BEGIN: Horizontal nav start-->
-         <!-- <nav class="white hide-on-med-and-down" id="horizontal-nav">
-             <div class="nav-wrapper">
-                 <ul class="left hide-on-med-and-down" id="ul-horizontal-nav" data-menu="menu-navigation">
-                     <li><a class="dropdown-menu" href="Javascript:void(0)" data-target="DashboardDropdown"><i class="material-icons">dashboard</i><span><span class="dropdown-title" data-i18n="Dashboard">Menu</span><i class="material-icons right">keyboard_arrow_down</i></span></a>
-                         <ul class="dropdown-content dropdown-horizontal-list" id="DashboardDropdown">
-                             <li data-menu=""><a href="/kartu_kuning"><span data-i18n="Modern">Kartu Kuning</span></a>
-                             </li>
-                             <li class="active" data-menu=""><a href="/loker"><span data-i18n="eCommerce">Loker</span></a>
-                             </li>
-                             <li data-menu=""><a href="#"><span data-i18n="Analytics">Lamar Kerja</span></a>
-                             </li>
-                             <li data-menu=""><a href="#"><span data-i18n="Analytics">Rekom Passport</span></a>
-                             </li>
-                             <li data-menu=""><a href="#"><span data-i18n="Analytics">Informasi Pelatihan</span></a>
-                             </li>
-                         </ul>
-                     </li>
-                 </ul>
-             </div>
-         </nav> -->
-     </div>
- </header>
- <!-- END: Header-->
+@php
+
+$user = Auth::user();
+
+if($user != null){
+$group = Auth::user()->group_id;
+}
+
+@endphp
+<!-- BEGIN: Header-->
+<header class="page-topbar" id="header">
+    <div class="navbar navbar-fixed">
+        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light">
+            <div class="nav-wrapper">
+                <ul class="left">
+                    <li>
+                        <h1 class="logo-wrapper"><a class="brand-logo darken-1" style="width: 300px;" href="/homepage"><img src="{{ asset('assets/images/logo/lapakmanjur.png') }}" alt="materialize logo"><span class="logo-text hide-on-med-and-down">LapakManjur</span></a></h1>
+                    </li>
+                </ul>
+                <ul class="navbar-list right">
+                    <?php if ($user == null) { ?>
+                        <li><a class="waves-effect waves-block waves-light profile-button" href="/lpk/daftar">&ensp;Daftar LPK</a></li>
+                        <li><a class="waves-effect waves-block waves-light profile-button" href="/register">&ensp;Daftar</a></li>
+                        <li><a class="waves-effect waves-block waves-light profile-button" href="/login">&ensp;Masuk</a></li>
+                    <?php } else { ?>
+                        <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
+                        <?php if ($jumlah_notif == 0) { ?>
+                            <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none</i></a></li>
+                        <?php } else { ?>
+                            <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge orange accent-3">{{$jumlah_notif}}</small></i></a></li>
+                        <?php } ?>
+                        <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown">&ensp;Selamat Datang, {{ auth()->user()->name }}!</a></li>
+                    <?php } ?>
+                </ul>
+
+                <!-- notifications-dropdown-->
+
+                <?php if ($user != null) { ?>
+                    <ul class="dropdown-content" id="notifications-dropdown">
+                        <li>
+                            <h6>NOTIFICATIONS<span class="new badge">{{$jumlah_notif}}</span></h6>
+                        </li>
+                        <li class="divider"></li>
+                        <?php if ($jumlah_notif == 0) { ?>
+                            <li style="height: 60px;">
+                                <a class="black-text" href="#!">Tidak ada pemberitahuan terbaru.</a>
+                            </li>
+                        <?php } else { ?>
+
+                            <?php if ($user->group_id == 1) { ?>
+                                <li>
+                                    <a class="black-text" href="/notif_ak1"><span class="new badge blue">{{$notif_ak1}}</span>Pengajuan AK-1 </a>
+                                </li>
+                                <li>
+                                    <a class="black-text" href="/notif_rekom"><span class="new badge blue">{{$notif_rekom}}</span>Pengajuan Rekom Passport </a>
+                                </li>
+                                <li>
+                                    <a class="black-text" href="/notification/update/"><span class="new badge blue">{{$notif_lamaran}}</span>Lamaran Kerja </a>
+                                </li>
+                                <li>
+                                    <a class="black-text" href="/notification/update/"><span class="new badge blue">{{$notif_pelatihan}}</span>Pengajuan Pelatihan </a>
+                                </li>
+                            <?php } else { ?>
+
+                                <?php foreach ($notifications as $notif) { ?>
+                                    <li>
+                                        <?php if ($notif->icon == 'report') { ?>
+                                            <?php if ($notif->notif_type == "AK1") { ?>
+                                                <a class="black-text" href="/notification/{{ $notif->id }}"><span class="material-icons icon-bg-circle red small">{{$notif->icon}}</span>{{$notif->title}}</a>
+                                            <?php } else if ($notif->notif_type == "Rekom Passport") { ?>
+                                                <a class="black-text" href="/notification"><span class="material-icons icon-bg-circle red small">{{$notif->icon}}</span>{{$notif->title}}</a>
+                                            <?php } ?>
+                                        <?php } else if ($notif->icon == "info") { ?>
+                                            <?php if ($notif->notif_type == "AK1") { ?>
+                                                <a class="black-text" href="/notification/{{ $notif->id }}"><span class="material-icons icon-bg-circle green small">{{$notif->icon}}</span>{{$notif->title}}</a>
+                                            <?php } else if ($notif->notif_type == "Rekom Passport") { ?>
+                                                <a class="black-text" href="/notification"><span class="material-icons icon-bg-circle green small">{{$notif->icon}}</span>{{$notif->title}}</a>
+                                            <?php } ?>
+                                        <?php } ?>
+                                        <time class="media-meta grey-text darken-2" datetime="2015-06-12T20:50:48+08:00">{{$notif->message}}</time>
+                                    </li>
+                                <?php } ?>
+
+                            <?php } ?>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
+                <!-- profile-dropdown-->
+
+                <?php if ($user != null) { ?>
+                    <ul class="dropdown-content" id="profile-dropdown">
+                        <?php if ($group == 1) { ?>
+                            <li><a class="grey-text text-darken-1" href="/user"><i class="material-icons">settings</i>User</a></li>
+                        <?php } else { ?>
+                            <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
+                        <?php } ?>
+                        <li class="divider"></li>
+                        <li><a class="grey-text text-darken-1" href="/logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
+                    </ul>
+                <?php } ?>
+            </div>
+            <nav class="display-none search-sm">
+                <div class="nav-wrapper">
+                    <form id="navbarForm">
+                        <div class="input-field search-input-sm">
+                            <input class="search-box-sm" type="search" required="" id="search" placeholder="Search" data-search="template-list">
+                            <label class="label-icon" for="search"><i class="material-icons search-sm-icon">search</i></label><i class="material-icons search-sm-close">close</i>
+                            <ul class="search-list collection search-list-sm display-none"></ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </nav>
+    </div>
+</header>
+<!-- END: Header-->

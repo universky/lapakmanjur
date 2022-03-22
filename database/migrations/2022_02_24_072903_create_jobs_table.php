@@ -25,6 +25,8 @@ class CreateJobsTable extends Migration
             $table->string('kemampuan_wajib');
             $table->string('kemampuan_tambahan');
             $table->string('deskripsi');
+            $table->date('tgl_buat');
+            $table->date('batas_tgl');
             $table->timestamps();
         });
     }

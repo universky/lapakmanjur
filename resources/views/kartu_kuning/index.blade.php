@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Pembuatan Kartu Kuning
+Pembuatan AK1
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ Pembuatan Kartu Kuning
                     <div class="col s12 m6 l6">
                         <h5 class="breadcrumbs-title">
                             <span>
-                                Kartu Kuning
+                                AK1
                             </span>
                             <span style="color: red;">
                                 ({{ $kartu_kuning->status }})
@@ -23,9 +23,9 @@ Pembuatan Kartu Kuning
                     </div>
                     <div class="col s12 m6 l6 right-align-md">
                         <ol class="breadcrumbs mb-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a>
+                            <li class="breadcrumb-item"><a href="/homepage">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Kartu Kuning
+                            <li class="breadcrumb-item active">AK1
                             </li>
                         </ol>
                     </div>
@@ -129,12 +129,6 @@ Pembuatan Kartu Kuning
                                                 <label for="alamat">Alamat</label>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input type="date" v-model="date" disabled>
-                                                <label for="date">Tanggal</label>
-                                            </div>
-                                        </div>
                                         <!-- <div class="row">
                                             <div class="input-field col s12">
                                                 <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
@@ -171,7 +165,6 @@ Pembuatan Kartu Kuning
             provinsi: '{{$kartu_kuning->provinsi}}',
             kota: '{{$kartu_kuning->kota}}',
             kode_pos: '{{$kartu_kuning->kode_pos}}',
-            date: '{{$kartu_kuning->date}}',
             created_at: '',
             updated_at: '',
 
@@ -196,7 +189,6 @@ Pembuatan Kartu Kuning
                         provinsi: this.provinsi,
                         kota: this.kota,
                         kode_pos: this.kode_pos,
-                        date: this.date,
                         created_at: this.created_at,
                         updated_at: this.updated_at,
 
